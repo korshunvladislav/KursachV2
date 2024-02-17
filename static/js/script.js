@@ -12,12 +12,19 @@ function getPoints() {
     })
     .then(response => response.json())
     .then(data => {
-        var points = '';
-        data.forEach(point => {
-            points += '(' + point[0] + ', ' + point[1] + ')<br>';
-        });
-        pointsOutput.innerHTML = 'Вы получили точки:<br>' + points;
-        savePoints(data);
+        // var points = '';
+        var pointsTable = '<table><tr><th>X</th><th>Y</th></tr>';
+        // data.forEach(point => {
+        //     points += '(' + point[0] + ', ' + point[1] + ')<br>';
+        // });
+        data.points.forEach(point => {
+            pointsTable += '<tr><td>' + point.x + '</td><td>' + point.y + '</td></tr>';
+        })
+        // pointsOutput.innerHTML = 'Вы получили точки:<br>' + points;
+        pointsTable += '</table>';
+        pointsOutput.innerHTML = pointsTable;
+        // savePoints(data);
+        savePoints(data.points);
     })
     .catch(error => console.error('Ошибка:', error));
 }

@@ -20,8 +20,8 @@ def get_points():
             coords = path.split('L')[1:]
             for c in coords:
                 x, y = map(float, c.split(','))
-                points.append((x, y))
-    return jsonify(points)
+                points.append(({'x': x, 'y': y}))
+    return jsonify({'points': points})
 
 @app.route('/save_points', methods=['POST'])
 def save_points():
