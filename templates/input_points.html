@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ввод точек вручную</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+</head>
+<body>
+    <div id="points-form">
+        <h1>Введите точки</h1>
+        <form action="/submit-points" method="POST">
+            <div id="points-input-container">
+                <input type="text" placeholder="Введите X" id="x" name="x" class="input">
+                <input type="text" placeholder="Введите Y" id="y" name="y" class="input">
+            </div>
+            <button type="button" onclick="addPoint()">Добавить точку</button>
+            <button type="submit" onclick="submitPoints()">Отправить точки</button>
+        </form>
+    </div>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

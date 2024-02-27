@@ -3,20 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Рисование графика функции</title>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title>Выбор действия</title>
     <link rel="stylesheet" href="/static/css/style.css"/>
 </head>
 <body>
-    <div class="container">
-        <h1>Рисование графика функции</h1>
-        <div>
-            <div id="function-graph" style="height: 500px;"></div>
-            <button class="button" onclick="getPoints()">Получить точки</button>
-            <button class="button" onclick="clearGraph()">Очистить график</button>
-            <div id="output-container" class="output"></div>
-        </div>
-    </div>
-    <script src="/static/js/script.js"></script>
+    <h1>Выберите действие</h1>
+    <a href="draw-graph"> <button>Нарисовать график</button></a>
+    <a href="input-points"> <button>Ввести точки вручную</button></a>
 </body>
 </html>

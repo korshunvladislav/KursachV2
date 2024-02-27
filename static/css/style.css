@@ -46,3 +46,33 @@ button:hover {
     background-color: #f9f9f9;
     margin-bottom: 20px;
 }
+
+.first-point-input {
+    margin-bottom: 5px;
+    margin-left: 3px;
+}
+
+.point-input {
+    margin-bottom: 5px;
+    margin-left: 4px;
+    /* margin-right: 1px; */
+}
+
+#choose-mode,
+#points-section-options {
+    text-align: center;
+}
+
+#choose-mode button,
+#points-section-options button {
+    margin: 0 5px;
+}
+
+#points-input-container,
+#input {
+    text-align: center;
+}
+
+#graph-section {
+    text-align: center;
+}

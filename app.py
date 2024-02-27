@@ -9,6 +9,14 @@ points_data = []
 def index():
     return render_template('index.html')
 
+@app.route('/draw-graph')
+def draw_graph():
+    return render_template('draw_graph.html')
+
+@app.route('/input-points')
+def input_points():
+    return render_template('input_points.html')
+
 @app.route('/get_points', methods=['POST'])
 def get_points():
     data = request.get_json()
@@ -31,7 +39,20 @@ def save_points():
         json.dump(points, f)
     return 'Точки успешно сохранены в файл points.json'
 
-
+@app.route('/submit_points', methods=['POST'])
+def submit_points():
+    data = request.form
+    points = []
+    
+    for key, value  in data.items():
+        if key.startswith('x'):
+            index = key[1:]
+            x = value
+            y = data['y' + index]
+            points.append({'x': x, 'y': y})
+    
+    with open('points.json', 'w') as f:
+        json.dump(points, f)
 
 if __name__ == '__main__':
-    app.run(port='5000', debug=True)
+    app.run(port='4999', debug=True)
