@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>График функции на основе данных из файла</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div id="plot-container" style="width:800px; height:800px;"></div>
+    <script>
+        var points = JSON.parse('{{ points | safe }}');  // Получаем точки из JSON-строки
+        var x = points.map(function(point) { return point[0]; });
+        var y = points.map(function(point) { return point[1]; });
+        
+        // Создание трассы
+        var trace = {
+            x: x,
+            y: y,
+            mode: 'lines',
+            type: 'scatter'
+        };
+        
+        // Определение макета (layout)
+        var layout = {
+            title: 'График функции на основе данных из файла',
+            xaxis: {
+                title: 'X',
+                autoscale: true  // Автоматическое масштабирование оси X
+            },
+            yaxis: {
+                title: 'Y',
+                autoscale: true  // Автоматическое масштабирование оси Y
+            }
+        };
+        
+        // Построение графика
+        Plotly.newPlot('plot-container', [trace], layout);
+    </script>
+</body>
+</html>
